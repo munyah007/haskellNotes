@@ -1,4 +1,4 @@
-// compiling an executable - stack exec ghc < filename with extension > // do this in a fresh cmd without gchi loaded
+// compiling an executable - stack ghc < filename with extension > // do this in a fresh cmd without gchi loaded
 // running a compiled executable -- stack runghc <name> // do this in a fresh cmd without gchi loaded
 // simple file reading and file writing 
  main = do 
@@ -187,5 +187,11 @@ begSpaceRemover (x : xs ) = if (isAspace x) then (begSpaceRemover xs) else (x : 
 myWords xs =  let ( pref , suf ) = (break (\ x -> x==' ')  xs ) in  if ((length suf )== 0 ) then (pref : []) else (pref : myWords  suf)
 NB "" is considered as a list of characters with length 0 it will not match []
 // A single element list matches the ( x : xs ) pattern were the xs is []
+// below is an easy way to construct working case and let  constructs
+fd x = case x of { 0 -> 1 ;   1 -> 10 ; _ -> 100 }
+fdl x = let { z = 2 * x ; y = x ** 2 } in y * z
 
+remember f.g = (f.g )arg_here  or f (g x)
+
+-- remember the two directions of recursion , forward in a generalised fashion then backwards with specific
 
